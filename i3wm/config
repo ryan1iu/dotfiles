@@ -8,7 +8,7 @@ set $mod Mod1
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 4
+default_border pixel 0
 default_floating_border none
 
 # Hide borders
@@ -75,7 +75,7 @@ bindsym $mod+a exec scrcpy -d -wS
 bindsym $mod+Shift+a exec bash ~/.sndcpy/sndcpy
 
 
-set $ws9 "󰯊"
+set $ws9 "󰈹"
 bindsym $mod+c workspace $ws9
 # assign [class="chrome"] $ws10
 set $ws10 "󰘅"
@@ -88,8 +88,8 @@ bindsym $mod+s workspace $ws11
 set $ws12 ""
 bindsym $mod+p workspace $ws12
 
-set $ws1 ""
-bindsym $mod+t workspace $ws1
+set $ws16 ""
+bindsym $mod+t workspace $ws16
 
 set $ws13 ""
 bindsym $mod+m workspace $ws13
@@ -97,8 +97,11 @@ bindsym $mod+m workspace $ws13
 set $ws14 ""
 bindsym $mod+v workspace $ws14
 
-set $ws15 "󰗊"
-bindsym $mod+Shift+b workspace $ws15 
+set $ws15 "󰺷"
+bindsym $mod+g workspace $ws15 
+
+set $ws17 ""
+bindsym $mod+x workspace $ws17
 
 # focus_follows_mouse no
 
@@ -171,7 +174,7 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 
+set $ws1 1
 set $ws2 2
 set $ws3 3
 set $ws4 4
@@ -214,7 +217,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+# assign [class="spotify"] $ws11
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border none
@@ -249,9 +252,18 @@ for_window [class="scrcpy"] floating enable border normal
 for_window [class="Deepin-WeChat"] floating enable
 for_window [class="Translatium"] floating enable border normal
 for_window [class="Stardict"] floating enable border normal
+for_window [class="bdtranslateclient"] floating enable
+for_window [class="wemeetapp"] floating enable
+for_window [title="stalonetray"] floating enable
+for_window [class="stalonetray"] floating enable
+for_window [class="trayer"] floating enable
+for_window [title="trayer"] floating enable
+for_window [class="panel"] floating enable
+for_window [title="panel"] floating enable
+
+
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
-for_window [class="*baidu*"] floating enable border normal
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -324,9 +336,10 @@ exec --no-startup-id xautolock -time 30 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
+exec --no-startup-id systray; sleep 0.5; xdo hide -N stalonetray 
 # exec --no-startup-id  google-chrome-stable
 # exec --no-startup-id  spotify-launcher
-exec --no-startup-id i3-msg 'workspace $ws1; exec alacritty;'
+exec --no-startup-id i3-msg 'workspace $ws16; exec alacritty;'
 
 
 
@@ -387,8 +400,8 @@ set_from_resource $term_color15    color15
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
-gaps outer 3
+gaps inner 9
+gaps outer 5
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10

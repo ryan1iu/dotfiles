@@ -30,7 +30,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #====================alias========================
-
+alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -al"
 alias cl="clear"
