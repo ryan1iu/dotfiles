@@ -3,7 +3,8 @@
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
-
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -53,8 +54,8 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec "xbacklight -ctrl amdgpu_bl0 -inc 10
+bindsym XF86MonBrightnessDown exec "xbacklight -ctrl amdgpu_bl0 -dec 10
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -75,7 +76,7 @@ bindsym $mod+a exec scrcpy -d -wS
 bindsym $mod+Shift+a exec bash ~/.sndcpy/sndcpy
 
 
-set $ws9 "󰈹"
+set $ws9 "󰇩"
 bindsym $mod+c workspace $ws9
 # assign [class="chrome"] $ws10
 set $ws10 "󰘅"
@@ -260,6 +261,10 @@ for_window [class="trayer"] floating enable
 for_window [title="trayer"] floating enable
 for_window [class="panel"] floating enable
 for_window [title="panel"] floating enable
+for_window [class="Qemu-system-i386"] floating enable
+for_window [class="fontforge"] floating enable
+for_window [class="latte-dock"] floating enable border none
+for_window [class="calibre"] floating enable border normal
 
 
 # switch to workspace with urgent window automatically
@@ -320,10 +325,11 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b 
 exec --no-startup-id nitrogen --restore 
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift -l 39.9042:116.4074
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
@@ -400,8 +406,8 @@ set_from_resource $term_color15    color15
 #############################
 
 # Set inner/outer gaps
-gaps inner 9
-gaps outer 5
+gaps inner 8
+gaps outer 4
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10

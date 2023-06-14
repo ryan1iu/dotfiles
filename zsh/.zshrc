@@ -36,5 +36,5 @@ alias la="ls -al"
 alias cl="clear"
 alias ..="cd .."
 alias tp="bash ~/.touping.sh &"
-alias vim="lvim"
+alias vim="nvim"
 source /usr/share/nvm/init-nvm.sh

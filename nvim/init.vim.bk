@@ -1,0 +1,97 @@
+" ==========Plugin==========
+call plug#begin()
+
+Plug 'preservim/nerdtree'
+nmap <F11> :NERDTreeToggle<CR>
+
+Plug 'majutsushi/tagbar'
+nmap <F12> :TagbarToggle<CR>
+
+" Plug 'h-hg/fcitx.nvim'
+Plug 'EdenEast/nightfox.nvim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='powerlineish'
+
+Plug 'luochen1990/rainbow'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" ==========Conf==========
+set nocompatible
+syntax on
+set showmatch
+set autoindent
+set nu
+set history=8129
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set ignorecase
+set smartcase
+set splitbelow
+set splitright
+set scrolloff=6
+set noshowmode
+set updatetime=100
+set signcolumn=yes
+set backspace=indent,eol,start
+set encoding=utf-8
+set fileencodings=utf-8,gbk2312,gbk,gb18030,cp936
+set clipboard+=unnamedplus
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup CursorLineOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
+lua <<EOF
+require('nightfox').setup({
+  options = {
+    transparent = false,
+  }
+})
+vim.cmd("colorscheme nordfox")
+EOF
+
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+map <C-a> <Nop>
+map <C-x> <Nop>
+
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+if has('nvim')
+  inoremap <silent><expr> <c-o> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+
+

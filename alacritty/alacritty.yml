@@ -1,0 +1,21 @@
+import:
+ - ~/.config/alacritty/themes/themes/tokyo-night-storm.yaml
+
+window:
+   opacity: 0.8
+
+font:
+  normal:
+    family: "Fira Code"
+    style: Medium
+
+  bold: 
+    family: Fira Code
+    style: bold
+
+  italic:
+    family: "CocaCola_Victor_Mono_Font"
+    style: italic 
+  # Point size
+  # 中文
+  size: 12
