@@ -132,10 +132,10 @@ try:
         print('%{T2}' + truncate(output.format(artist=artist, 
                                      song=song, 
                                      play_pause=play_pause, 
-                                     album=album), trunclen + 4))
+                                     album=album), trunclen + 4) + '%{T-}')
 
 except Exception as e:
     if isinstance(e, dbus.exceptions.DBusException):
         print('')
     else:
-        print('%{T3}' + e + '%{T-}')
+        print('%{T2}' + e + '%{T-}')

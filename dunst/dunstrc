@@ -1,5 +1,5 @@
 [global]
-    font = "Hack 11"
+    font = "可口可乐在乎体"
     corner_radius = 2
     markup = full
     format = "<b>%s</b>\n%b"
@@ -8,13 +8,12 @@
     alignment = center
     stack_duplicates = true
     bounce_freq = 0
-    show_age_threshold = 60
+    show_age_threshold = 1
     word_wrap = yes
     ignore_newline = no
     offset = 645x40
     width = 300
     # geometry = "0x5+300+25"
-    browser = /usr/bin/firefox -new-tab
     transparency = 0
     idle_threshold = 120
     monitor = 0
@@ -27,8 +26,6 @@
     text_icon_padding = 10
     separator_color = "#585858"
     startup_notification = false
-    # https://github.com/knopwob/dunst/issues/26#issuecomment-36159395
-    #icon_position = left
     frame_width = 0
     icon_folders = /usr/share/icons/breeze/apps/48/:/usr/share/icons/breeze/actions/48/:/usr/share/icons/breeze/places/48/:/usr/share/icons/breeze/status/48/
     frame_color = "#00282828"
@@ -41,17 +38,17 @@
 
 [urgency_low]
     background = "#2D282828"
-    foreground = "#ebdbb2"
+    foreground = "#a6b6e8"
     timeout = 5
 
 [urgency_normal]
     background = "#30383d6b"
-    foreground = "#EAF6F9"
+    foreground = "#a6b6e8"
     timeout = 5
 
 [urgency_critical]
     background = "#1D282828"
-    foreground = "#ebdbb2"
+    foreground = "#a6b6e8"
     timeout = 5
 
 [play_sound]
