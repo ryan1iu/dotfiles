@@ -1,10 +1,8 @@
-background "#11214a"
 decorations none
 fuzzy_edges 0
-geometry 1x1+1873+37
-max_geometry 1x1+1905+60
+geometry 1x1+1875+37
 grow_gravity NE
-icon_gravity NE
+icon_gravity NW
 icon_size 24
 slot_size 32x32
 scrollbars none
@@ -16,4 +14,5 @@ transparent false
 vertical true
 window_layer top
 window_strut auto
-window_type normal
+window_type desktop
+background "#c6d7ec"

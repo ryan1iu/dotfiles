@@ -88,7 +88,7 @@ if args.play_pause is not None:
 try:
     session_bus = dbus.SessionBus()
     spotify_bus = session_bus.get_object(
-        'org.mpris.MediaPlayer2.spotify',
+        'org.mpris.MediaPlayer2.yesplaymusic',
         '/org/mpris/MediaPlayer2'
     )
 
@@ -129,13 +129,13 @@ try:
             album = label_with_font.format(font=font, label=album)
 
         # Add 4 to trunclen to account for status symbol, spaces, and other padding characters
-        print('%{T2}' + truncate(output.format(artist=artist, 
+        print('%{T4}' + truncate(output.format(artist=artist, 
                                      song=song, 
                                      play_pause=play_pause, 
-                                     album=album), trunclen + 4) + '%{T-}')
+                                     album=album), trunclen + 4) + '%{T-}' )
 
 except Exception as e:
     if isinstance(e, dbus.exceptions.DBusException):
         print('')
     else:
-        print('%{T2}' + e + '%{T-}')
+        print('')

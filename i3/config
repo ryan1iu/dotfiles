@@ -9,7 +9,7 @@ bindsym $mod+Shift+Tab workspace prev
 #workspace_layout tabbed 
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 3
+default_border pixel 0
 default_floating_border none
 
 # Hide borders
@@ -45,19 +45,35 @@ bindsym XF86MonBrightnessUp exec "xbacklight -ctrl amdgpu_bl0 -inc 10
 bindsym XF86MonBrightnessDown exec "xbacklight -ctrl amdgpu_bl0 -dec 10
 
 # Start Applications
-# bindsym $mod+F2 exec google-chrome-stable
-# bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-# bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-bindsym $mod+a exec scrcpy -d -wS
-bindsym $mod+Shift+a exec bash ~/.sndcpy/sndcpy
-focus_follows_mouse yes
+# bindsym $mod+a exec scrcpy -d -wS
+# bindsym $mod+Shift+a exec bash $HOME/sndcpy/sndcpy
+set $ws9 ""
+bindsym $mod+c workspace $ws9
+set $ws11 ""
+bindsym $mod+s workspace $ws11
+# for_window [class="Spotify"] move to workspace $ws11
+set $ws12 ""
+bindsym $mod+p workspace $ws12
+set $ws16 ""
+bindsym $mod+t workspace $ws16
+set $ws13 ""
+bindsym $mod+m workspace $ws13
+set $ws14 ""
+bindsym $mod+v workspace $ws14
+set $ws15 "󰺷"
+bindsym $mod+g workspace $ws15 
+set $ws17 ""
+bindsym $mod+x workspace $ws17
+
+# Lock screen
+bindsym $mod+9 exec --no-startup-id $HOME/.config/i3/lock.sh
 
 # change focus
+focus_follows_mouse yes
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -89,7 +105,7 @@ bindsym $mod+b workspace back_and_forth
 # split orientation
 bindsym $mod+h split h;exec notify-send '水平'
 bindsym $mod+Shift+v split v;exec notify-send '垂直'
-#bindsym $mod+q split toggle
+bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -162,26 +178,6 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-set $ws9 "󰇩"
-bindsym $mod+c workspace $ws9
-set $ws10 "󰘅"
-bindsym $mod+q workspace $ws10
-set $ws11 ""
-bindsym $mod+s workspace $ws11
-# for_window [class="Spotify"] move to workspace $ws11
-set $ws12 ""
-bindsym $mod+p workspace $ws12
-set $ws16 ""
-bindsym $mod+t workspace $ws16
-set $ws13 ""
-bindsym $mod+m workspace $ws13
-set $ws14 ""
-bindsym $mod+v workspace $ws14
-set $ws15 "󰺷"
-bindsym $mod+g workspace $ws15 
-set $ws17 ""
-bindsym $mod+x workspace $ws17
-
 # Open applications on specific workspaces
 assign [class="steam"] $ws15
 assign [class="Spotify"] $ws11
@@ -218,18 +214,19 @@ for_window [class="Translatium"] floating enable border normal
 for_window [class="Stardict"] floating enable border normal
 for_window [class="bdtranslateclient"] floating enable
 for_window [class="wemeetapp"] floating enable
-for_window [title="stalonetray"] floating enable
 for_window [class="stalonetray"] floating enable
 for_window [class="trayer"] floating enable
 for_window [title="trayer"] floating enable
 for_window [class="panel"] floating enable
-for_window [title="panel"] floating enable
 for_window [class="Qemu-system-i386"] floating enable
 for_window [class="fontforge"] floating enable
-for_window [class="latte-dock"] floating enable border none
+for_window [class="lattedock"] floating enable border none
 for_window [class="calibre"] floating enable border normal
 for_window [class="Tlp-UI"] floating enable border none
 for_window [class="trayer"] floating enable border none
+for_window [class="Blueman-manager"] floating enable border none
+for_window [class="Nm-connection-editor"] floating enable border none
+
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -247,7 +244,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym l exec --no-startup-id $HOME/.config/i3/lock.sh, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -284,13 +281,9 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
-
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b 
-exec --no-startup-id nitrogen --restore 
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 39.9042:116.4074
 exec --no-startup-id xfce4-power-manager
@@ -298,11 +291,11 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id fcitx5
 exec --no-startup-id blueman-applet
-exec --no-startup-id xautolock -time 30 -locker blurlock
+# exec --no-startup-id xautolock -time 30 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
-exec --no-startup-id systray; sleep 0.5; xdo hide -N stalonetray 
+# exec --no-startup-id $HOME/.config/polybar/systray.sh 
 exec --no-startup-id i3-msg 'workspace $ws16; exec alacritty;'
 
 
