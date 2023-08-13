@@ -15,10 +15,14 @@
     width = 300
     # geometry = "0x5+300+25"
     transparency = 0
-    idle_threshold = 120
+    idle_threshold = 10
+    show_age_threshold = -1
     monitor = 0
     follow = mouse
-    sticky_history = yes
+    sticky_history = false
+    ignore_dbusclose = true
+    notification_limit = 10
+    hide_timeout = yes
     line_height = 0
     separator_height = 2
     padding = 5
@@ -27,7 +31,6 @@
     separator_color = "#585858"
     startup_notification = false
     frame_width = 0
-    icon_folders = /usr/share/icons/breeze/apps/48/:/usr/share/icons/breeze/actions/48/:/usr/share/icons/breeze/places/48/:/usr/share/icons/breeze/status/48/
     frame_color = "#00282828"
     
 [shortcuts]
@@ -39,19 +42,19 @@
 [urgency_low]
     background = "#2D282828"
     foreground = "#a6b6e8"
-    timeout = 5
+    timeout = 2
 
 [urgency_normal]
     background = "#30383d6b"
     foreground = "#a6b6e8"
-    timeout = 5
+    timeout = 2
 
 [urgency_critical]
     background = "#1D282828"
     foreground = "#a6b6e8"
-    timeout = 5
+    timeout = 2
 
 [play_sound]
     summary = "*"
-    script = /home/ryan/.local/bin/dunstplay.sh
+    script = /home/ryan/.config/dunst/dunstplay.sh
 # vim: ft=cfg
