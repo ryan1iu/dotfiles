@@ -1,19 +1,20 @@
 import:
-  - ~/.config/alacritty/themes/tokyo-night.yaml
+  - ~/.config/alacritty/themes/rose-pine.yaml
 window:
    opacity: 0.8
 
 font:
   normal:
-    family: "ComicShannsMono Nerd Font Mono"
-    style: Medium
+    family: "霞鹜臻楷 等宽"
+    style: Regular
 
   bold: 
-    family: "ComicShannsMono Nerd Font Mono" 
-    style: bold
+    family: "霞鹜臻楷 等宽" 
+    style: Bold
 
   italic:
-    family: "CocaCola_Victor_Mono_Font"
-    style: italic 
+    family: "霞鹜臻楷 等宽"
+    style: Bold 
   # Point size
+  # 中文
   size: 14

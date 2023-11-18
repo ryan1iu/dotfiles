@@ -1,5 +1,5 @@
 [global]
-    font = "可口可乐在乎体"
+    font = "LXGW ZhenKai"
     corner_radius = 2
     markup = full
     format = "<b>%s</b>\n%b"
@@ -42,17 +42,17 @@
 [urgency_low]
     background = "#2D282828"
     foreground = "#a6b6e8"
-    timeout = 2
+    timeout = 4
 
 [urgency_normal]
     background = "#30383d6b"
     foreground = "#a6b6e8"
-    timeout = 2
+    timeout = 4
 
 [urgency_critical]
     background = "#1D282828"
     foreground = "#a6b6e8"
-    timeout = 2
+    timeout = 4
 
 [play_sound]
     summary = "*"

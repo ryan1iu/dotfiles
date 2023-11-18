@@ -12,6 +12,10 @@ export PATH=$PATH:~/.local/bin
 HISTFILE=~/.zhistory
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
+# export CC=/usr/bin/gcc-6
+# export CXX=/usr/bin/g++-6
+
+bindkey '\' autosuggest-accept
 
 #alias
 alias cl="clear"
@@ -20,3 +24,5 @@ alias la="ls -al"
 alias vim="nvim"
 alias ..="cd .."
 
+
+[ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh
