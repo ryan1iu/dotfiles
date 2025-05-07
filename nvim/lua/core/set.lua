@@ -27,3 +27,13 @@ vim.g.neovide_refresh_rate = 60
 vim.g.neovide_refresh_rate_idle = 5
 -- vim.g.neovide_fullscreen = true
 vim.cmd([[autocmd ColorScheme * highlight Comment guifg=#9ACD32]]) -- 修改注释颜色
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "cpp" },
+	callback = function()
+		vim.bo.expandtab = true -- UseTab: Never
+		vim.bo.shiftwidth = 2 -- IndentWidth: 2
+		vim.bo.tabstop = 2 -- TabWidth: 2
+		vim.bo.softtabstop = 2 -- 编辑时使用 2 个空格代替 Tab
+		vim.bo.smartindent = true -- 启用智能缩进（也可用 cindent）
+	end,
+})

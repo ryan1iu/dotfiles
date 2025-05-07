@@ -1,0 +1,60 @@
+[global]
+    font = "LXGW ZhenKai"
+    corner_radius = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = center
+    stack_duplicates = true
+    bounce_freq = 0
+    show_age_threshold = 1
+    word_wrap = yes
+    ignore_newline = no
+    offset = 645x40
+    width = 300
+    # geometry = "0x5+300+25"
+    transparency = 0
+    idle_threshold = 10
+    show_age_threshold = -1
+    monitor = 0
+    follow = mouse
+    sticky_history = false
+    ignore_dbusclose = true
+    notification_limit = 10
+    hide_timeout = yes
+    line_height = 0
+    separator_height = 2
+    padding = 5
+    horizontal_padding = 10
+    text_icon_padding = 10
+    separator_color = "#585858"
+    startup_notification = false
+    frame_width = 0
+    frame_color = "#00282828"
+    
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#2D282828"
+    foreground = "#a6b6e8"
+    timeout = 4
+
+[urgency_normal]
+    background = "#30383d6b"
+    foreground = "#a6b6e8"
+    timeout = 4
+
+[urgency_critical]
+    background = "#1D282828"
+    foreground = "#a6b6e8"
+    timeout = 4
+
+[play_sound]
+    summary = "*"
+    script = /home/ryan/.config/dunst/dunstplay.sh
+# vim: ft=cfg
