@@ -1,0 +1,32 @@
+{
+    "layer": "top",
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["network", "tray", "battery", "clock"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "tray": {
+        "spacing": 10    // 关键！这个属性控制图标之间的间距，单位是像素。
+    },
+    "network": {
+        "interface": "Meta", // Or your wired interface, like "eth0"
+        "interval": 2,        // Update every 1 second for real-time speed
+        "format-wifi": "⬇️:{bandwidthDownBytes} ⬆️:{bandwidthUpBytes}", // Download and Upload for Wi-Fi
+        "format-ethernet": "⬇️:{bandwidthDownBytes} ⬆️:{bandwidthUpBytes}", // Download and Upload for Ethernet
+        "format-disconnected": "", // Nothing shown when disconnected
+        "tooltip-format-wifi": "Wi-Fi: {essid}\nIP: {ipaddr}\nDownload: {bandwidthDownBytes}\nUpload: {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}\nDownload: {bandwidthDownBytes}\nUpload: {bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "min-length": 20,
+        "max-length": 20 // Adjust as needed to prevent text from overflowing
+        // No "format-icons" section needed for this minimal display
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    }
+}

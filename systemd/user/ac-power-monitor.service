@@ -1,0 +1,10 @@
+[Unit]
+Description=AC power monitor for Hyprland
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/ac-power-monitor
+Restart=always
+
+[Install]
+WantedBy=default.target

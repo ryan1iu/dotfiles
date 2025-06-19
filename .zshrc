@@ -12,6 +12,7 @@ alias ls="exa -l --icons"
 alias vim="nvim"
 alias cl="clear"
 alias ..="cd .."
+alias sctl="systemctl"
 
 # 输入命令时，根据历史记录提供灰色自动补全建议
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -26,7 +27,7 @@ autoload -U compinit && compinit
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # 快速git命令补全（独立于omz)
-source ~/.zsh/plugins/gitfast/gitfast.plugin.zsh
+# source ~/.zsh/plugins/gitfast/gitfast.plugin.zsh
 
 # 输入命令前缀之后，按方向键搜索历史记录
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
