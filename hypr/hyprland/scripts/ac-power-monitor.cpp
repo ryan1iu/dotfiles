@@ -37,7 +37,6 @@ void switch_refresh_rate(bool on_ac_power) {
 
 int main() {
   int last_state = -1;
-
   while (true) {
     int current_state = read_power_state();
     if (current_state != last_state && current_state != -1) {

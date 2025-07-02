@@ -18,7 +18,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				-- vue = { "prettierd" },
-				rust = { "rustfmt" },
+				-- rust = { "rustfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = false,
