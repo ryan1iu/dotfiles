@@ -28,7 +28,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun 
+bindsym $mod+d exec --no-startup-id rofi -dpi 192 -show drun 
 
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
@@ -193,13 +193,16 @@ client.focused          #4c7899 #285577 #4CAF50 #233f66 #233f66
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b 
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift -O -P 2900
+exec --no-startup-id redshift -l 38:114
 # exec --no-startup-id clipit
 exec --no-startup-id fcitx5
-exec --no-startup-id mako
 exec --no-startup-id clash-verge
-exec --no-startup-id autotiling
+# 智能布局
+exec --no-startup-id autotiling 
+# 高级手势识别工具
 exec --no-startup-id fusuma
+# 通知工具
+exec --no-startup-id dunst
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id xautolock -time 30 -locker blurlock
 

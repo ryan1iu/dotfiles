@@ -51,3 +51,6 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # 输入命令前缀之后，按方向键搜索历史记录
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Add conda to shell
+source ~/miniconda3/etc/profile.d/conda.sh
