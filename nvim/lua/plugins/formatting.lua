@@ -11,7 +11,7 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
-				yaml = { "yamlfmt" },
+				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "blue" },

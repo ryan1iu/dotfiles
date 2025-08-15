@@ -1,5 +1,6 @@
 return {
 	"nvimdev/dashboard-nvim",
+	enabled = false,
 	event = "VimEnter", -- 在 Neovim 启动时自动加载
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",

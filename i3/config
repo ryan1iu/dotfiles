@@ -10,6 +10,8 @@ bindsym $mod+Shift+Tab workspace prev
 default_border pixel 3
 default_floating_border none
 
+font pango:monospace 10 
+
 # Hide borders
 hide_edge_borders none
 
@@ -22,7 +24,7 @@ bindsym $mod+n border normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -37,6 +39,9 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl s +5% 
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%- 
+
+# screen shot
+bindsym F1 exec flameshot gui
 
 # change focus
 focus_follows_mouse yes
@@ -69,8 +74,8 @@ bindsym $mod+b workspace back_and_forth
 #bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-# bindsym $mod+h split h;exec notify-send '水平'
-bindsym $mod+Shift+v split v;exec notify-send '垂直'
+bindsym $mod+Ctrl+h split h;exec notify-send '水平'
+bindsym $mod+Ctrl+v split v;exec notify-send '垂直'
 # bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -188,7 +193,7 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-client.focused          #4c7899 #285577 #4CAF50 #233f66 #233f66
+client.focused          #4c7899 #285577 #FFFFFF #233f66 #233f66
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b 
@@ -198,19 +203,23 @@ exec --no-startup-id redshift -l 38:114
 exec --no-startup-id fcitx5
 exec --no-startup-id clash-verge
 # 智能布局
-exec --no-startup-id autotiling 
+exec_always --no-startup-id autotiling 
 # 高级手势识别工具
 exec --no-startup-id fusuma
 # 通知工具
 exec --no-startup-id dunst
+# 截图工具
+exec --no-startup-id flameshot
+# Polybar
+exec_always --no-startup-id killall polybar; polybar
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id xautolock -time 30 -locker blurlock
 
 # hide/unhide i3status bar
-bar {
-    status_command i3status
-    font pango:Sans 10
-}
+# bar {
+#     status_command i3status
+#     font pango:Sans 10
+# }
 # bindsym $mod+m bar mode toggle
 
 # Set inner/outer gaps

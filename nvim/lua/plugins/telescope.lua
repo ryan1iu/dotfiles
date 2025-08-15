@@ -20,6 +20,14 @@ return {
 					},
 				},
 			},
+			pickers = {
+				find_files = {
+					layout_strategy = "horizontal",
+					layout_config = {
+						preview_width = 0.65,
+					},
+				},
+			},
 		})
 
 		telescope.load_extension("fzf")
